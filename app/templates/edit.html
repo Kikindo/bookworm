@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <title>Uredi knjigu</title>
+</head>
+<body>
+  <h1>Uredi knjigu</h1>
+  <form method="post">
+    <label>Naslov:</label><br>
+    <input type="text" name="naslov_knjige" value="{{ book.naslov_knjige }}" required><br><br>
+
+    <label>Autor:</label><br>
+    <input type="text" name="autor" value="{{ book.autor }}" required><br><br>
+
+    <label>Žanr:</label><br>
+    <input type="text" name="zanr" value="{{ book.zanr }}" required><br><br>
+
+    <label>Ocjena (1-10):</label><br>
+    <input type="number" name="ocjena" min="1" max="10" value="{{ book.ocjena }}" required><br><br>
+
+    <label>Bilješke:</label><br>
+    <textarea name="biljeske">{{ book.biljeske }}</textarea><br><br>
+
+    <button type="submit">Spremi promjene</button>
+    <a href="{{ url_for('index') }}">Natrag</a>
+  </form>
+</body>
+</html>

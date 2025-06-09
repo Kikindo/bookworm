@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <title>Bookworm - Knjige</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+  <h1>Moje knjige</h1>
+
+  <!-- Filtriranje i sortiranje -->
+  <form method="get" action="{{ url_for('index') }}">
+    <label for="zanr">Filtriraj po žanru:</label>
+    <select name="zanr" id="zanr">
+      <option value="">-- svi --</option>
+      {% for zanr in zanrovi %}
+        <option value="{{ zanr }}" {% if zanr == zanr_filter %}selected{% endif %}>{{ zanr }}</option>
+      {% endfor %}
+    </select>
+
+    <label for="autor">Filtriraj po autoru:</label>
+    <select name="autor" id="autor">
+      <option value="">-- svi --</option>
+      {% for autor in autori %}
+        <option value="{{ autor }}" {% if autor == autor_filter %}selected{% endif %}>{{ autor }}</option>
+      {% endfor %}
+    </select>
+
+    <label for="sort">Sortiraj po:</label>
+    <select name="sort" id="sort">
+      <option value="">Vrijeme dodavanja</option>
+      <option value="naslov" {% if sort_by == "naslov" %}selected{% endif %}>Naslov</option>
+      <option value="ocjena" {% if sort_by == "ocjena" %}selected{% endif %}>Ocjena</option>
+    </select>
+
+    <button type="submit">Primijeni</button>
+  </form>
+
+  <!-- Dodavanje nove knjige -->
+  <a href="{{ url_for('add_book') }}">Dodaj novu knjigu</a>
+
+  <ul>
+    {% for book in books %}
+    <li>
+      <strong>{{ book.naslov_knjige }}</strong> – {{ book.autor }} ({{ book.zanr }})<br>
+      Ocjena: {{ book.ocjena }}/10 <br>
+      Bilješke: {{ book.biljeske or "-" }}<br>
+
+      <a href="{{ url_for('edit_book', book_id=book.id) }}">Uredi</a>
+
+      <!-- Brisanje knjige -->
+      <form method="post" action="{{ url_for('delete_book', book_id=book.id) }}" style="display:inline;">
+        <button type="submit" onclick="return confirm('Jesi li siguran da želiš obrisati ovu knjigu?')">Obriši</button>
+      </form>
+      <hr>
+    </li>
+    {% endfor %}
+  </ul>
+</body>
+</html>

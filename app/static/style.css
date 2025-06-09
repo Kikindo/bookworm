@@ -1,0 +1,56 @@
+body {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 40px auto;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  color: #2c3e50;
+}
+
+a {
+  color: #2980b9;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+form {
+  margin: 10px 0;
+}
+
+button {
+  padding: 5px 10px;
+  background-color: #e74c3c;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #c0392b;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background-color: white;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+select {
+  padding: 4px;
+  margin-right: 10px;
+}
