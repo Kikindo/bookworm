@@ -1,7 +1,7 @@
 # Bookworm 
 
-Autor: Tomislav Rakuljić
-Fakultet: Fakultet informatike u Puli
+- Autor: Tomislav Rakuljić
+- Fakultet: Fakultet informatike u Puli
 
 ## Use Case Dijagram
 ![bm8BUxu](https://github.com/user-attachments/assets/db056164-5c42-40f9-9196-a1b80d38eeac)
